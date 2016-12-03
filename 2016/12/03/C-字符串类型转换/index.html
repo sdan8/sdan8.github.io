@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,序列化,反序列化," />
+  <meta name="keywords" content="C#,字符串," />
 
 
 
@@ -84,31 +84,22 @@
 
 
 
-<meta name="description" content="对象序列化和反序列化
-对象序列化就是将Object转换成byte序列，反之叫反序列化
-序列化流ObjectOutputStream是过滤流—-writeObject(obj)
-反序列化流ObjectInputStream—readObject()
-要序列化的对象必须实现序列化接口，才能进行序列化，否则将出现异常，这个接口没有任何方法，只是一个标准
-被transient关键字修饰的变量，不会进行jv">
+<meta name="description" content="string 类型转成 byte[]1byte[] byteArray = System.Text.Encoding.Default.GetBytes(str);
+byte[] 转成 string1string str = System.Text.Encoding.Default.GetString(byteArray);
+string 类型转成 ASCII byte[] (“01” 转成 byt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对象序列化和反序列化">
-<meta property="og:url" content="https://sdan8.github.io/2016/12/03/对象序列化和反序列化/index.html">
+<meta property="og:title" content="C#字符串类型转换">
+<meta property="og:url" content="https://sdan8.github.io/2016/12/03/C-字符串类型转换/index.html">
 <meta property="og:site_name" content="sdan8's blog">
-<meta property="og:description" content="对象序列化和反序列化
-对象序列化就是将Object转换成byte序列，反之叫反序列化
-序列化流ObjectOutputStream是过滤流—-writeObject(obj)
-反序列化流ObjectInputStream—readObject()
-要序列化的对象必须实现序列化接口，才能进行序列化，否则将出现异常，这个接口没有任何方法，只是一个标准
-被transient关键字修饰的变量，不会进行jv">
-<meta property="og:updated_time" content="2016-12-02T18:24:39.109Z">
+<meta property="og:description" content="string 类型转成 byte[]1byte[] byteArray = System.Text.Encoding.Default.GetBytes(str);
+byte[] 转成 string1string str = System.Text.Encoding.Default.GetString(byteArray);
+string 类型转成 ASCII byte[] (“01” 转成 byt">
+<meta property="og:updated_time" content="2016-12-03T03:04:50.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对象序列化和反序列化">
-<meta name="twitter:description" content="对象序列化和反序列化
-对象序列化就是将Object转换成byte序列，反之叫反序列化
-序列化流ObjectOutputStream是过滤流—-writeObject(obj)
-反序列化流ObjectInputStream—readObject()
-要序列化的对象必须实现序列化接口，才能进行序列化，否则将出现异常，这个接口没有任何方法，只是一个标准
-被transient关键字修饰的变量，不会进行jv">
+<meta name="twitter:title" content="C#字符串类型转换">
+<meta name="twitter:description" content="string 类型转成 byte[]1byte[] byteArray = System.Text.Encoding.Default.GetBytes(str);
+byte[] 转成 string1string str = System.Text.Encoding.Default.GetString(byteArray);
+string 类型转成 ASCII byte[] (“01” 转成 byt">
 
 
 
@@ -136,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sdan8.github.io/2016/12/03/对象序列化和反序列化/"/>
+  <link rel="canonical" href="https://sdan8.github.io/2016/12/03/C-字符串类型转换/"/>
 
 
 
 
 
-  <title> 对象序列化和反序列化 | sdan8's blog </title>
+  <title> C#字符串类型转换 | sdan8's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +274,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/对象序列化和反序列化/">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/C-字符串类型转换/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="sdan8">
@@ -307,7 +298,7 @@
             
             
               
-                对象序列化和反序列化
+                C#字符串类型转换
               
             
           </h1>
@@ -320,7 +311,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T02:10:52+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T11:03:52+08:00">
                 2016-12-03
               </time>
             
@@ -339,8 +330,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C#</span>
                   </a>
                 </span>
 
@@ -354,8 +345,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/对象序列化和反序列化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/对象序列化和反序列化/" itemprop="commentCount"></span>
+                <a href="/2016/12/03/C-字符串类型转换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/C-字符串类型转换/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,24 +372,15 @@
       
 
       
-        <h3 id="对象序列化和反序列化"><a href="#对象序列化和反序列化" class="headerlink" title="对象序列化和反序列化"></a>对象序列化和反序列化</h3><ul>
-<li>对象序列化就是将Object转换成byte序列，反之叫反序列化</li>
-<li>序列化流<code>ObjectOutputStream</code>是过滤流—-<code>writeObject(obj)</code></li>
-<li>反序列化流<code>ObjectInputStream</code>—<code>readObject()</code></li>
-<li>要序列化的对象必须实现序列化接口，才能进行序列化，否则将出现异常，这个接口没有任何方法，只是一个标准</li>
-<li>被transient关键字修饰的变量，不会进行jvm默认的序列化，但可以自己完成这个元素的序列化<ul>
-<li><code>private transient int sutAge;</code></li>
-</ul>
-</li>
-<li>参考<code>ArrayList</code>类中被transient修饰变量的序列化实现，可理解transient的作用，提高性能，避免无效元素的序列化</li>
-<li>如果一个类实现了序列化接口，那么其子类都可以进行序列化</li>
-<li>序列化子类对象时，父类和子类的构造函数会被调用</li>
-<li>反序列化子类对象时，没有实现序列化接口的父类会调用构造函数，实现了序列化接口的父类不会调用</li>
-</ul>
+        <h3 id="string-类型转成-byte"><a href="#string-类型转成-byte" class="headerlink" title="string 类型转成 byte[]"></a>string 类型转成 byte[]</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] byteArray = System.Text.Encoding.Default.GetBytes(str);</div></pre></td></tr></table></figure>
+<h3 id="byte-转成-string"><a href="#byte-转成-string" class="headerlink" title="byte[] 转成 string"></a>byte[] 转成 string</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> str = System.Text.Encoding.Default.GetString(byteArray);</div></pre></td></tr></table></figure>
+<h3 id="string-类型转成-ASCII-byte"><a href="#string-类型转成-ASCII-byte" class="headerlink" title="string 类型转成 ASCII byte[]"></a>string 类型转成 ASCII byte[]</h3><p><strong> (“01” 转成 byte[] = new byte[]{0x30,0x31}) </strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] byteArray = System.Text.Encoding.ASCII.GetBytes(str);</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="要序列化的对象"><a href="#要序列化的对象" class="headerlink" title="要序列化的对象"></a>要序列化的对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> String stuName;</div><div class="line">  <span class="keyword">private</span> String stuId;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> stuAge;</div><div class="line"></div><div class="line">  <span class="comment">//无参构造方法</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123; &#125;</div><div class="line">  <span class="comment">//带参构造方法</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String stuName, String stuId, <span class="keyword">int</span> stuAge)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>();</div><div class="line">    <span class="keyword">this</span>.stuName = stuName;</div><div class="line">    <span class="keyword">this</span>.stuId = stuId;</div><div class="line">    <span class="keyword">this</span>.stuAge = stuAge;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//get和set方法</span></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">getStuName</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> stuName;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuName</span><span class="params">(String stuName)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.stuName = stuName;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//...省略</span></div><div class="line">  <span class="comment">//toString()方法</span></div><div class="line">  <span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Student [stuName="</span> + stuName + <span class="string">", stuId="</span> + stuId + <span class="string">", stuAge="</span> + stuAge + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="序列化实现"><a href="#序列化实现" class="headerlink" title="序列化实现"></a>序列化实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	Student stu = <span class="keyword">new</span> Student(<span class="string">"张三"</span>, <span class="string">"10010"</span>, <span class="number">20</span>);</div><div class="line">	String file = <span class="string">"ObjSeria.dat"</span>;</div><div class="line">  <span class="comment">//序列化</span></div><div class="line">	<span class="comment">/*ObjectOutputStream oos = new ObjectOutputStream(</span></div><div class="line">			new FileOutputStream(file));</div><div class="line">	oos.writeObject(stu);</div><div class="line">	oos.flush();</div><div class="line">	oos.close();*/</div><div class="line">  <span class="comment">//反序列化</span></div><div class="line">	ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(</div><div class="line">			<span class="keyword">new</span> FileInputStream(file));</div><div class="line">	Student stu1 = (Student)ois.readObject();</div><div class="line">	System.out.println(stu1);</div><div class="line">	ois.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="序列化和反序列化被transient关键字修饰的变量"><a href="#序列化和反序列化被transient关键字修饰的变量" class="headerlink" title="序列化和反序列化被transient关键字修饰的变量"></a>序列化和反序列化被transient关键字修饰的变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将这两个方法放入要序列化的类中</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(java.io.ObjectOutputStream s)</span></span></div><div class="line">        <span class="keyword">throws</span> java.io.IOException&#123;</div><div class="line">  s.defaultWriteObject();<span class="comment">//把jvm能默认序列化的元素进行序列化操作</span></div><div class="line">  s.writeInt(stuAge);<span class="comment">//自己完成stuAge的序列化</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(java.io.ObjectInputStream s)</span></span></div><div class="line">        <span class="keyword">throws</span> java.io.IOException, ClassNotFoundException&#123;</div><div class="line">  s.defaultReadObject();<span class="comment">//把jvm能默认反序列化的元素进行反序列化操作</span></div><div class="line">  <span class="keyword">this</span>.stuAge = s.readInt();<span class="comment">//自己完成stuAge的反序列化</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ASCIIbyte-转成-string"><a href="#ASCIIbyte-转成-string" class="headerlink" title="ASCIIbyte[] 转成 string"></a>ASCIIbyte[] 转成 string</h3><p>** (byte[] = new byte[]{0x30,0x31} 转成 “01”)</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> str = System.Text.Encoding.ASCII.GetString(byteArray);</div></pre></td></tr></table></figure>
+<h3 id="byte-转16进制格式-string"><a href="#byte-转16进制格式-string" class="headerlink" title="byte[] 转16进制格式 string"></a>byte[] 转16进制格式 string</h3><p><strong> new byte[]{0x30,0x31} 转成 “3031” </strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">ToHexString</span>(<span class="params"><span class="keyword">byte</span>[] bytes</span>)  <span class="comment">//0xae00cf =&gt; "AE00CF"</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">string</span> hexString = <span class="keyword">string</span>.Empty;</div><div class="line">  <span class="keyword">if</span>(bytes != <span class="literal">null</span>)</div><div class="line">  &#123;</div><div class="line">    StringBuilder strB = <span class="keyword">new</span> StringBuilder();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.Length; i++)</div><div class="line">    &#123;</div><div class="line">      strB.Append(bytes[i].ToString(<span class="string">"x2"</span>));</div><div class="line">    &#125;</div><div class="line">    hexString = strB.ToString();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> hexString;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="16进制格式-string-转-byte"><a href="#16进制格式-string-转-byte" class="headerlink" title="16进制格式 string 转 byte[]"></a>16进制格式 string 转 byte[]</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] <span class="title">GetBytes</span>(<span class="params"><span class="keyword">string</span> hexString, <span class="keyword">out</span> <span class="keyword">int</span> discarded</span>)</span></div><div class="line">&#123;</div><div class="line">  discarded = <span class="number">0</span>;</div><div class="line">  <span class="keyword">string</span> newString = <span class="string">""</span>;</div><div class="line">  <span class="keyword">char</span> c; <span class="comment">//remove all none A-F, 0-9, characters</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; hexString.Length; i++)</div><div class="line">  &#123;</div><div class="line">    c = hexString[i];</div><div class="line">    <span class="keyword">if</span>(IsHexDig(c))</div><div class="line">      <span class="keyword">new</span> String += c;</div><div class="line">    <span class="keyword">else</span></div><div class="line">      discarded++;</div><div class="line">  &#125;   <span class="comment">//if odd number of characters,discard last character</span></div><div class="line">  <span class="keyword">if</span>(newString.Length % <span class="number">2</span> != <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    discarded++;</div><div class="line">    newString = newString.Substring(<span class="number">0</span>, newString.Length - <span class="number">1</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">int</span> byteLength = newString.Length / <span class="number">2</span>;</div><div class="line">  <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[byteLength];</div><div class="line">  <span class="keyword">string</span> hex;</div><div class="line">  <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.Length; i++)</div><div class="line">  &#123;</div><div class="line">    hex = <span class="keyword">new</span> String(<span class="keyword">new</span> Char[]&#123;newString[j], newString[j + <span class="number">1</span>]&#125;);</div><div class="line">    bytes[i] = HexToByte(hex);</div><div class="line">    j = j + <span class="number">2</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> bytes;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -422,11 +404,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/C/" rel="tag"># C#</a>
           
-            <a href="/tags/序列化/" rel="tag"># 序列化</a>
-          
-            <a href="/tags/反序列化/" rel="tag"># 反序列化</a>
+            <a href="/tags/字符串/" rel="tag"># 字符串</a>
           
         </div>
       
@@ -435,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/12/03/C-托盘操作/" rel="next" title="C#托盘操作">
+                <i class="fa fa-chevron-left"></i> C#托盘操作
               </a>
             
           </div>
@@ -444,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/03/剪贴板复制粘贴操作/" rel="prev" title="剪贴板复制粘贴操作">
-                剪贴板复制粘贴操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,8 +449,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/03/对象序列化和反序列化/"
-           data-title="对象序列化和反序列化" data-url="https://sdan8.github.io/2016/12/03/对象序列化和反序列化/">
+      <div class="ds-thread" data-thread-key="2016/12/03/C-字符串类型转换/"
+           data-title="C#字符串类型转换" data-url="https://sdan8.github.io/2016/12/03/C-字符串类型转换/">
       </div>
     
   </div>
@@ -591,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象序列化和反序列化"><span class="nav-number">1.</span> <span class="nav-text">对象序列化和反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要序列化的对象"><span class="nav-number">2.</span> <span class="nav-text">要序列化的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化实现"><span class="nav-number">3.</span> <span class="nav-text">序列化实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化和反序列化被transient关键字修饰的变量"><span class="nav-number">4.</span> <span class="nav-text">序列化和反序列化被transient关键字修饰的变量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#string-类型转成-byte"><span class="nav-number">1.</span> <span class="nav-text">string 类型转成 byte[]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#byte-转成-string"><span class="nav-number">2.</span> <span class="nav-text">byte[] 转成 string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-类型转成-ASCII-byte"><span class="nav-number">3.</span> <span class="nav-text">string 类型转成 ASCII byte[]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCIIbyte-转成-string"><span class="nav-number">4.</span> <span class="nav-text">ASCIIbyte[] 转成 string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#byte-转16进制格式-string"><span class="nav-number">5.</span> <span class="nav-text">byte[] 转16进制格式 string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16进制格式-string-转-byte"><span class="nav-number">6.</span> <span class="nav-text">16进制格式 string 转 byte[]</span></a></li></ol></div>
             
 
           </div>
