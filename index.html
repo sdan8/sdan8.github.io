@@ -292,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/Java文件编码/">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate单表CRUD操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="sdan8">
@@ -317,8 +317,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/Java文件编码/" itemprop="url">
-                  Java文件编码
+                <a class="post-title-link" href="/2016/12/04/Hibernate单表CRUD操作/" itemprop="url">
+                  Hibernate单表CRUD操作
                 </a>
               
             
@@ -332,8 +332,1076 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T14:07:34+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:30:57+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/Hibernate单表CRUD操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Hibernate单表CRUD操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>save</li>
+<li>update</li>
+<li>delete</li>
+<li>get/load(查询单个记录)</li>
+</ul>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/Hibernate单表CRUD操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate中session的使用/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Hibernate中session的使用/" itemprop="url">
+                  Hibernate中session的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:24:14+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/Hibernate中session的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Hibernate中session的使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="获取session的方式"><a href="#获取session的方式" class="headerlink" title="获取session的方式"></a>获取session的方式</h2><ol>
+<li>sessionFactory.openSession</li>
+<li>sessionFactory.getCurrentSession</li>
+</ol>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/Hibernate中session的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate-cfg-xml常用配置/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Hibernate-cfg-xml常用配置/" itemprop="url">
+                  Hibernate.cfg.xml常用配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:22:04+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/Hibernate-cfg-xml常用配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Hibernate-cfg-xml常用配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <table>
+<thead>
+<tr>
+<th style="text-align:center">属性名字</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hibernate.show_sql</td>
+<td style="text-align:center">是否把Hibernate运行时的SQL语句输出到控制台，编码阶段便于测试。</td>
+</tr>
+<tr>
+<td style="text-align:center">hibernate.format_sql</td>
+<td style="text-align:center">输出到控制台的SQL语句是否进行排版，便于阅读。建议设置为true</td>
+</tr>
+<tr>
+<td style="text-align:center">hbm2ddl.auto</td>
+<td style="text-align:center">可以帮助由java代码生成数据库脚本，进而生成具体的表结构。create&#124;update&#124;create-drop&#124;validate</td>
+</tr>
+<tr>
+<td style="text-align:center">hibernate.default_schema</td>
+<td style="text-align:center">默认的数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">hibernate.dialect</td>
+<td style="text-align:center">配置Hibernate数据库方言，Hibernate可针对特殊的数据库进行优化</td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/Hibernate-cfg-xml常用配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate基本类型/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Hibernate基本类型/" itemprop="url">
+                  Hibernate基本类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:20:15+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/Hibernate基本类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Hibernate基本类型/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/Hibernate基本类型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/hbm配置文件常用设置/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/hbm配置文件常用设置/" itemprop="url">
+                  hbm配置文件常用设置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:18:30+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/hbm配置文件常用设置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/hbm配置文件常用设置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/hbm配置文件常用设置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate开发基本步骤/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Hibernate开发基本步骤/" itemprop="url">
+                  Hibernate开发基本步骤
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:16:33+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">Hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/Hibernate开发基本步骤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Hibernate开发基本步骤/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>编写配置文档hibernate.cfg.xml</li>
+<li>编写实体类（符合JavaBean规范）</li>
+<li>生成对应实体类的映射文件并添加到配置文档中</li>
+<li>调用Hibernate API进行测试</li>
+</ol>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/Hibernate开发基本步骤/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/JSTL标签和函数的使用/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/JSTL标签和函数的使用/" itemprop="url">
+                  JSTL标签和函数的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:11:39+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JSP/" itemprop="url" rel="index">
+                    <span itemprop="name">JSP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/JSTL标签和函数的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/JSTL标签和函数的使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li>将jstl.jar和standard.jar两个包导入到项目中</li>
+<li>使用标签添加<code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</code></li>
+<li>使用函数添加<code>&lt;%@ taglib prefix=&quot;fn&quot; uri=&quot;http://java.sun.com/jsp/jstl/functions&quot;%&gt;</code></li>
+</ol>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/JSTL标签和函数的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/注解/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="sdan8">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="sdan8's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/注解/" itemprop="url">
+                  注解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:00:26+08:00">
+                2016-12-04
               </time>
             
 
@@ -366,8 +1434,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/Java文件编码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/Java文件编码/" itemprop="commentCount"></span>
+                <a href="/2016/12/04/注解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/注解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,164 +1462,14 @@
 
       
         
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"张三Ab1"</span>;</div><div class="line"><span class="comment">//转换成字节序列用的是项目默认编码(gbk)，等同于 s.getBytes("gbk")</span></div><div class="line"><span class="keyword">byte</span>[] bytes1 = s.getBytes();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes1)&#123;</div><div class="line">  <span class="comment">//byte转换成int，把后8位前面加上24个0，变成32位</span></div><div class="line">  <span class="comment">//位与上 0xff 去掉前面24个0</span></div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：d5  c5  c8  fd  41  62  31</span></div><div class="line"><span class="comment">//            张     三     A   b   1</span></div><div class="line"><span class="comment">//gbk编码中文占2字节，英文占1字节</span></div><div class="line"></div><div class="line"><span class="comment">//转换成utf-8编码</span></div><div class="line"><span class="keyword">byte</span>[] bytes2 = s.getBytes(<span class="string">"utf-8"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes2)&#123;</div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：e5  bc  a0  e4  b8  89  41  62  31</span></div><div class="line"><span class="comment">//utf-8编码中文占3字节，英文占1字节</span></div><div class="line"></div><div class="line"><span class="comment">//Java是双字节编码 utf-16be</span></div><div class="line"><span class="keyword">byte</span>[] bytes3 = s.getBytes(<span class="string">"utf-16be"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes3)&#123;</div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：5f  20  4e  9  0  41  0  62  0  31</span></div><div class="line"><span class="comment">//utf-16be编码中文英文都占2字节</span></div></pre></td></tr></table></figure>
-<p>当字节序列是某种编码时，如果要转换成字符串，也需要用这种编码方式，否则出现乱码，不指明编码方式时用项目默认编码方式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"张三"</span>;</div><div class="line"><span class="keyword">byte</span>[] bytes = s.getBytes(utf-<span class="number">16</span>be);</div><div class="line">String str1 = <span class="keyword">new</span> String(bytes);  <span class="comment">//用项目默认编码方式（gbk），输出乱码</span></div><div class="line">String str2 = <span class="keyword">new</span> String(bytes,<span class="string">"utf-16be"</span>);  <span class="comment">//用utf-16be编码，输出正常</span></div><div class="line">System.out.print(str1); <span class="comment">//输出乱码</span></div><div class="line">System.out.print(str2); <span class="comment">//输出正常e</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/JavaScript正则表达式笔记/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/JavaScript正则表达式笔记/" itemprop="url">
-                  JavaScript正则表达式笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T13:43:10+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/JavaScript正则表达式笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/JavaScript正则表达式笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><p><strong>两种方法实例化RegExp对象</strong></p>
-<ul>
-<li>字面量</li>
-<li>构造函数</li>
+          <h2 id="JDK自带注解"><a href="#JDK自带注解" class="headerlink" title="JDK自带注解"></a>JDK自带注解</h2><ul>
+<li>@Override 重写</li>
+<li>@Deprecated 过时</li>
+<li>@SuppressWarnings 忽略过时 @SuppressWarnings(“deprecation”)</li>
 </ul>
-<p><strong>字面量</strong></p>
-<p>将文本写在两个斜线”/“之间</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span>;</div></pre></td></tr></table></figure>
-<p><strong>构造函数</strong></p>
-<p>使用 new RegExp()出一个对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>,<span class="string">'g'</span>);</div><div class="line"><span class="comment">// 这里的"\\b"是因为转义字符。</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/JavaScript正则表达式笔记/#more" rel="contents">
+            <a class="btn" href="/2016/12/04/注解/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -592,7 +1510,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/JavaScript学习笔记（二）/">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/JSP九大内置对象/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="sdan8">
@@ -617,8 +1535,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/JavaScript学习笔记（二）/" itemprop="url">
-                  JavaScript学习笔记（二）
+                <a class="post-title-link" href="/2016/12/04/JSP九大内置对象/" itemprop="url">
+                  JSP九大内置对象
                 </a>
               
             
@@ -632,8 +1550,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T13:38:25+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T11:58:16+08:00">
+                2016-12-04
               </time>
             
 
@@ -651,8 +1569,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/JSP/" itemprop="url" rel="index">
+                    <span itemprop="name">JSP</span>
                   </a>
                 </span>
 
@@ -666,8 +1584,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/JavaScript学习笔记（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/JavaScript学习笔记（二）/" itemprop="commentCount"></span>
+                <a href="/2016/12/04/JSP九大内置对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/JSP九大内置对象/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -694,10 +1612,10 @@
 
       
         
-          <h3 id="定义数组"><a href="#定义数组" class="headerlink" title="定义数组"></a>定义数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myarr1 = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> myarr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>);  <span class="comment">//虽然指定长度，但是可以增加</span></div><div class="line"><span class="keyword">var</span> myarr3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>);</div><div class="line"><span class="keyword">var</span> myarr4 = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>];  <span class="comment">//直接输入一个数组（称“字面量数组”）</span></div><div class="line"><span class="comment">//声明二维数组方法一</span></div><div class="line"><span class="keyword">var</span> myarr = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)</div><div class="line">&#123;</div><div class="line">  myarr[i] = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)</div><div class="line">  &#123;</div><div class="line">    myarr[i][j]=i+j;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myArr = [[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]]<span class="comment">//声明二维数组方法二</span></div></pre></td></tr></table></figure>
+          <h2 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h2>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/JavaScript学习笔记（二）/#more" rel="contents">
+            <a class="btn" href="/2016/12/04/JSP九大内置对象/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -738,7 +1656,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/JavaScript学习笔记（一）/">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Java集合/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="sdan8">
@@ -763,8 +1681,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/JavaScript学习笔记（一）/" itemprop="url">
-                  JavaScript学习笔记（一）
+                <a class="post-title-link" href="/2016/12/04/Java集合/" itemprop="url">
+                  Java集合
                 </a>
               
             
@@ -778,1026 +1696,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T13:34:51+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/JavaScript学习笔记（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/JavaScript学习笔记（一）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="保留字和关键字"><a href="#保留字和关键字" class="headerlink" title="保留字和关键字"></a>保留字和关键字</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">关键字</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">break</td>
-<td style="text-align:center">else</td>
-<td style="text-align:center">new</td>
-<td style="text-align:left">var</td>
-</tr>
-<tr>
-<td style="text-align:center">case</td>
-<td style="text-align:center">finally</td>
-<td style="text-align:center">return</td>
-<td style="text-align:left">void</td>
-</tr>
-<tr>
-<td style="text-align:center">catch</td>
-<td style="text-align:center">for</td>
-<td style="text-align:center">switch</td>
-<td style="text-align:left">while</td>
-</tr>
-<tr>
-<td style="text-align:center">default</td>
-<td style="text-align:center">if</td>
-<td style="text-align:center">throw</td>
-</tr>
-<tr>
-<td style="text-align:center">delete</td>
-<td style="text-align:center">in</td>
-<td style="text-align:center">try</td>
-</tr>
-<tr>
-<td style="text-align:center">do</td>
-<td style="text-align:center">instanceof</td>
-<td style="text-align:center">typeof</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">保留字</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">abstract</td>
-<td style="text-align:center">enum</td>
-<td style="text-align:center">int</td>
-<td style="text-align:left">short</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">export</td>
-<td style="text-align:center">interface</td>
-<td style="text-align:left">static</td>
-</tr>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">extends</td>
-<td style="text-align:center">long</td>
-<td style="text-align:left">super</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">final</td>
-<td style="text-align:center">native</td>
-<td style="text-align:left">synchronized</td>
-</tr>
-<tr>
-<td style="text-align:center">class</td>
-<td style="text-align:center">float</td>
-<td style="text-align:center">package</td>
-<td style="text-align:left">throws</td>
-</tr>
-<tr>
-<td style="text-align:center">const</td>
-<td style="text-align:center">goto</td>
-<td style="text-align:center">private</td>
-<td style="text-align:left">transient</td>
-</tr>
-<tr>
-<td style="text-align:center">debugger</td>
-<td style="text-align:center">implements</td>
-<td style="text-align:center">protected</td>
-<td style="text-align:left">volatile</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">import</td>
-<td style="text-align:center">public</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/JavaScript学习笔记（一）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/DOM生成XML文件/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/DOM生成XML文件/" itemprop="url">
-                  DOM生成XML文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T13:33:06+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XML/" itemprop="url" rel="index">
-                    <span itemprop="name">XML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/DOM生成XML文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/DOM生成XML文件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>与JavaScrip中对DOM文档操作简直一毛一样</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> DocumentBuilder <span class="title">getDocumentBuilder</span><span class="params">()</span></span>&#123;</div><div class="line">  DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();</div><div class="line">  DocumentBuilder db = <span class="keyword">null</span>;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    db = dbf.newDocumentBuilder();</div><div class="line">  &#125; <span class="keyword">catch</span> (ParserConfigurationException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> db;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/DOM生成XML文件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/DOM解析XML/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/DOM解析XML/" itemprop="url">
-                  DOM解析XML
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T13:30:42+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XML/" itemprop="url" rel="index">
-                    <span itemprop="name">XML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/DOM解析XML/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/DOM解析XML/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="四种解析方式"><a href="#四种解析方式" class="headerlink" title="四种解析方式"></a>四种解析方式</h2><ul>
-<li>DOM</li>
-<li>SAX</li>
-<li>DOM4J</li>
-<li>JDOM</li>
-</ul>
-<h2 id="常用的节点类型"><a href="#常用的节点类型" class="headerlink" title="常用的节点类型"></a>常用的节点类型</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">节点类型</th>
-<th style="text-align:center">NodeType</th>
-<th style="text-align:center">Named Constant</th>
-<th style="text-align:center">nodeName的返回值</th>
-<th style="text-align:center">nodeValue的返回值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Element</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">ELEMENT_NODE</td>
-<td style="text-align:center">element name</td>
-<td style="text-align:center">null</td>
-</tr>
-<tr>
-<td style="text-align:center">Attr</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">ATTRIBUTE_NODE</td>
-<td style="text-align:center">属性名称</td>
-<td style="text-align:center">属性值</td>
-</tr>
-<tr>
-<td style="text-align:center">Text</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">TEXT_NODE</td>
-<td style="text-align:center">#text</td>
-<td style="text-align:center">节点内容</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/DOM解析XML/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/C-字符串类型转换/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/C-字符串类型转换/" itemprop="url">
-                  C#字符串类型转换
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T11:03:52+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/C-字符串类型转换/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/C-字符串类型转换/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="string-类型转成-byte"><a href="#string-类型转成-byte" class="headerlink" title="string 类型转成 byte[]"></a>string 类型转成 byte[]</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] byteArray = System.Text.Encoding.Default.GetBytes(str);</div></pre></td></tr></table></figure>
-<h3 id="byte-转成-string"><a href="#byte-转成-string" class="headerlink" title="byte[] 转成 string"></a>byte[] 转成 string</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> str = System.Text.Encoding.Default.GetString(byteArray);</div></pre></td></tr></table></figure>
-<h3 id="string-类型转成-ASCII-byte"><a href="#string-类型转成-ASCII-byte" class="headerlink" title="string 类型转成 ASCII byte[]"></a>string 类型转成 ASCII byte[]</h3><p><strong> (“01” 转成 byte[] = new byte[]{0x30,0x31}) </strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] byteArray = System.Text.Encoding.ASCII.GetBytes(str);</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/C-字符串类型转换/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/C-托盘操作/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/C-托盘操作/" itemprop="url">
-                  C#托盘操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T10:54:31+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/C-托盘操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/C-托盘操作/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="最小化到托盘"><a href="#最小化到托盘" class="headerlink" title="最小化到托盘"></a>最小化到托盘</h3><ul>
-<li>添加 NotifyIcon 控件</li>
-<li>设置 NotifyIcon 控件的 Icon 属性，用来显示托盘区的图标</li>
-</ul>
-<p><strong> 代码部分 </strong></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Form1_Resize</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.WindowState == FormWindowState.Minimized)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">this</span>.Hide();</div><div class="line">    <span class="keyword">this</span>.ShowInTaskbar = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">this</span>.notifyIcon1.Visible = <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">notifyIcon1_MouseDoubleClick</span>(<span class="params"><span class="keyword">object</span> sender, MouseEventArgs e</span>)</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.WindowState == FormWindowState.Minimized)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">this</span>.Show();</div><div class="line">    <span class="keyword">this</span>.ShowInTaskbar = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">this</span>.notifyIcon1.Visible = <span class="literal">false</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="托盘区右键菜单栏"><a href="#托盘区右键菜单栏" class="headerlink" title="托盘区右键菜单栏"></a>托盘区右键菜单栏</h3><ul>
-<li>添加 ContextMenuStrip 控件</li>
-<li>添加项</li>
-<li>设置菜单项的事件</li>
-<li>将 ContextMenuStrip 控件绑定到 NotifyIcon 控件上</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/剪贴板复制粘贴操作/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/剪贴板复制粘贴操作/" itemprop="url">
-                  剪贴板复制粘贴操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T10:51:54+08:00">
-                2016-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C#</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/剪贴板复制粘贴操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/剪贴板复制粘贴操作/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">string</span> str = <span class="string">"要复制的内容"</span>;</div><div class="line">Clipboard.SetDataObject(str);</div></pre></td></tr></table></figure>
-<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">IDataObject ido = Clipboard.GetDataObject();</div><div class="line"><span class="keyword">if</span>(ido.Data.GetDataPresent(DataFormats.Text))</div><div class="line">&#123;</div><div class="line">  txt_content.Text = (String)ido.GetData(DataFormats.Text);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/03/对象序列化和反序列化/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="sdan8">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="sdan8's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="sdan8's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/对象序列化和反序列化/" itemprop="url">
-                  对象序列化和反序列化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T02:10:52+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T11:56:01+08:00">
+                2016-12-04
               </time>
             
 
@@ -1830,8 +1730,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/对象序列化和反序列化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/对象序列化和反序列化/" itemprop="commentCount"></span>
+                <a href="/2016/12/04/Java集合/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Java集合/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1858,23 +1758,12 @@
 
       
         
-          <h3 id="对象序列化和反序列化"><a href="#对象序列化和反序列化" class="headerlink" title="对象序列化和反序列化"></a>对象序列化和反序列化</h3><ul>
-<li>对象序列化就是将Object转换成byte序列，反之叫反序列化</li>
-<li>序列化流<code>ObjectOutputStream</code>是过滤流—-<code>writeObject(obj)</code></li>
-<li>反序列化流<code>ObjectInputStream</code>—<code>readObject()</code></li>
-<li>要序列化的对象必须实现序列化接口，才能进行序列化，否则将出现异常，这个接口没有任何方法，只是一个标准</li>
-<li>被transient关键字修饰的变量，不会进行jvm默认的序列化，但可以自己完成这个元素的序列化<ul>
-<li><code>private transient int sutAge;</code></li>
-</ul>
-</li>
-<li>参考<code>ArrayList</code>类中被transient修饰变量的序列化实现，可理解transient的作用，提高性能，避免无效元素的序列化</li>
-<li>如果一个类实现了序列化接口，那么其子类都可以进行序列化</li>
-<li>序列化子类对象时，父类和子类的构造函数会被调用</li>
-<li>反序列化子类对象时，没有实现序列化接口的父类会调用构造函数，实现了序列化接口的父类不会调用</li>
-</ul>
+          <h2 id="集合中的两个根接口"><a href="#集合中的两个根接口" class="headerlink" title="集合中的两个根接口:"></a>集合中的两个根接口:</h2><ul>
+<li>Collection</li>
+<li>Map
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/对象序列化和反序列化/#more" rel="contents">
+            <a class="btn" href="/2016/12/04/Java集合/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1910,7 +1799,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1951,7 +1840,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1959,7 +1848,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1968,7 +1857,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
