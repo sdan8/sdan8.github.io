@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[简单配置匿名FTP服务器]]></title>
+      <url>%2F2018%2F12%2F18%2F%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E5%8C%BF%E5%90%8DFTP%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[配置一台可以匿名访问的FTP服务器。 本地环境 虚拟机：VMware® Workstation 14 Pro 服务器操作系统：CentOS 7 客户端：windows 7 准备工作安装vsftp1yum install vsftpd -y 关闭防火墙1systemctl stop firewalld //关闭防火墙 关闭SELinux两种方法： 临时关闭，使用 setenforce 命令实现，但是这种方法在重启系统后失效。 1setenforce 0 通过修改配置文件的方式，使SELinux不随开机启动。打开 /etc/selinux/config 文件，修改 SELINUX 字段值为 disabled ，保存后重启系统生效。 1SELINUX=disabled #完全禁止SELinux的功能 设置配置文件打开 /etc/vsftpd/vsftpd.conf 文件，找到相应字段进行设置，配置内容如下： 1234anonymous_enable=YES #允许匿名用户访问anon_upload_enable=YES #匿名用户可以上传文件anon_mkdir_write_enable=YES #允许匿名用户拥有新建文件夹的权限anon_other_write_enable=YES #允许匿名用户拥有重命名和删除的权限 设置目录拥有者匿名用户登录的目录默认为 /var/ftp ，但不可以直接修改匿名用户根目录 /var/ftp 所有者为 ftp ，否则将导致匿名用户不可以登录服务器。可以在匿名用户的根目录下新建子目录，来供匿名用户上传文件。例如 /var/ftp/pub 目录。 1chown ftp /var/ftp/pub //修改该目录的所有者为ftp 当修改 /var/ftp/pub 目录所有者为 ftp 后，匿名用户即可在此目录下上传文件。 启动服务1systemctl start vsftpd //启动vsftpd服务 如果在执行该命令后，没有任何提示信息，表示启动成功，可以通过 systemctl status vsftpd 命令来查看服务当前状态。 如果在执行该命令后，出现如下图所示信息，则表示服务没有启动成功，检查配置文件 /etc/vsftpd/vsftpd.conf 是否有错。 验证结果使用命令 ifconfig 可以查看服务器的IP地址 在客户端中打开windows资源管理器，地址栏中输入 ftp://服务器IP ，验证是否可以匿名登录，并下载上传文件。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Python面向对象]]></title>
+      <url>%2F2017%2F02%2F17%2FPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%2F</url>
+      <content type="text"><![CDATA[定义类12345678910class ClassName: statement1 ... statementN# 新式类class OldStyle:# 老式类class NewStyle(object): 构造函数1def __init__(self, [...]): 析构函数1def __del__(self, [...]): 类的属性定义类里定义直接在类里定义，类似于静态属性，不同对象之间是共享的 12class Programer(object): sex = 'male' 构造函数里定义在构造函数里面定义，不同对象之间是不共享的 1234class Programer(object): def __init__(self, name, age): self.name = name self.age = age 访问控制Python里面不提供访问控制，完全依靠程序员的自觉，常用属性定义： 123456789101112class Programer(object): def __init__(self, name, age, weight): self.name = name # 公有属性 self._age = age # 私有属性 self.__weight = weight # 变相私有属性# 当属性名有两个下划线时，Python会改变属性名，需要加类名if __name__ == '__main__': programer = Programer('Albert', 25, 80) print(programer.name) # Albert print(programer._age) # 25 print(programer._Programer__weight) # 80 以上为编程约束，而非语法约束 类的方法定义和属性定义类似，包括访问控制 123456789101112131415161718class Programer(object): def __init__(self, name, age, weight): self.name = name self._age = age self.__weight = weight @classmethod def get_hobby(cls): return cls.hobby @property def get_weight(self): return self.__weightif __name__ == '__main__': programer = Programer('Albert', 25, 80) print(Programer.get_hobby()) # 类方法通过类名调用 print(programer.get_weight) # 通过类似属性的方法调用，不需要括号]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA['Python之常用内置函数']]></title>
       <url>%2F2017%2F02%2F08%2FPython%E4%B9%8B%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%2F</url>
       <content type="text"><![CDATA[列举常用的内置函数 abs() 取绝对值 max() 取最大值 min() 取最小值 len() 取长度 divmod(x, y) 取商和模，返回一个tuple (x//y, x%y) pow(x, y[, z]) 求幂,x的y次幂,z表示求余 round() 四舍五入 callable() 测试函数是否可以被调用 isinstance() 判断类型是否为指定类型 cmp(x, y) 比较x和y的大小，如果 x&gt;y 返回 1 ，如果 x&lt;y 返回 -1，如果 x==y 返回 0 range() xrange() type() 查看对象类型 int() 转换成整型 long() 转换成长整型 float() 转换成浮点型 complex() str() list() tuple() hex() oct() chr() 将ASCII码转换成字符 ord() 将字符转换成ASCII码 123456789101112131415161718192021L = [1,2,3,4,5,6,7]print max(L) # 7print min(L) # 1print len(L) # 7print divmod(7, 3) # (2, 1)print pow(2,3,3) # 2 ^ 3 % 3 -&gt; 2f1 = 1print callable(f) # Falsedef f2(): passprint callable(f2) # Trueprint callable(max) # Trueprint isinstance(L, list) # Trueprint range(10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]print xrange(10) # xrange(10)print ord('A') # 65print chr(65) # A string函数 str.capitalize() 首字母大写 str.replace() 返回替换的字符串 str.split() 切割 1print 'abc'.capitalize() # Abc 序列处理函数 len() max() min() filter() zip() map() reduce()]]></content>
