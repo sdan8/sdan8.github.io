@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JSP,Hibernate,框架,CRUD," />
+  <meta name="keywords" content="Linux,ftp," />
 
 
 
@@ -84,28 +84,16 @@
 
 
 
-<meta name="description" content="方法
-save
-update
-delete
-get/load(查询单个记录)">
+<meta name="description" content="配置一台虚拟用户访问的FTP服务器。虚拟用户，FTP建立非系统用户的FTP用户，虚拟用户只能访问FTP共享资源，而没有操作系统其他资源的权利，所以相比实体用户更加安全。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hibernate单表CRUD操作">
-<meta property="og:url" content="https://sdan8.github.io/2016/12/04/Hibernate单表CRUD操作/index.html">
+<meta property="og:title" content="配置虚拟用户FTP服务器">
+<meta property="og:url" content="https://sdan8.github.io/2018/12/20/配置虚拟用户FTP服务器/index.html">
 <meta property="og:site_name" content="sdan8's blog">
-<meta property="og:description" content="方法
-save
-update
-delete
-get/load(查询单个记录)">
-<meta property="og:updated_time" content="2016-12-04T04:33:45.795Z">
+<meta property="og:description" content="配置一台虚拟用户访问的FTP服务器。虚拟用户，FTP建立非系统用户的FTP用户，虚拟用户只能访问FTP共享资源，而没有操作系统其他资源的权利，所以相比实体用户更加安全。">
+<meta property="og:updated_time" content="2018-12-20T13:53:36.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hibernate单表CRUD操作">
-<meta name="twitter:description" content="方法
-save
-update
-delete
-get/load(查询单个记录)">
+<meta name="twitter:title" content="配置虚拟用户FTP服务器">
+<meta name="twitter:description" content="配置一台虚拟用户访问的FTP服务器。虚拟用户，FTP建立非系统用户的FTP用户，虚拟用户只能访问FTP共享资源，而没有操作系统其他资源的权利，所以相比实体用户更加安全。">
 
 
 
@@ -133,13 +121,13 @@ get/load(查询单个记录)">
 
 
 
-  <link rel="canonical" href="https://sdan8.github.io/2016/12/04/Hibernate单表CRUD操作/"/>
+  <link rel="canonical" href="https://sdan8.github.io/2018/12/20/配置虚拟用户FTP服务器/"/>
 
 
 
 
 
-  <title> Hibernate单表CRUD操作 | sdan8's blog </title>
+  <title> 配置虚拟用户FTP服务器 | sdan8's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +291,7 @@ get/load(查询单个记录)">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2016/12/04/Hibernate单表CRUD操作/">
+  <link itemprop="mainEntityOfPage" href="https://sdan8.github.io/2018/12/20/配置虚拟用户FTP服务器/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="sdan8">
@@ -327,7 +315,7 @@ get/load(查询单个记录)">
             
             
               
-                Hibernate单表CRUD操作
+                配置虚拟用户FTP服务器
               
             
           </h1>
@@ -340,8 +328,8 @@ get/load(查询单个记录)">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:30:57+08:00">
-                2016-12-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T21:53:36+08:00">
+                2018-12-20
               </time>
             
 
@@ -359,8 +347,8 @@ get/load(查询单个记录)">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hibernate/" itemprop="url" rel="index">
-                    <span itemprop="name">Hibernate</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -394,19 +382,44 @@ get/load(查询单个记录)">
       
 
       
-        <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>save</li>
-<li>update</li>
-<li>delete</li>
-<li>get/load(查询单个记录)</li>
-</ul>
+        <p>配置一台虚拟用户访问的FTP服务器。虚拟用户，FTP建立非系统用户的FTP用户，虚拟用户只能访问FTP共享资源，而没有操作系统其他资源的权利，所以相比实体用户更加安全。</p>
 <a id="more"></a>
-<h2 id="get与load的区别"><a href="#get与load的区别" class="headerlink" title="get与load的区别"></a>get与load的区别</h2><ul>
-<li><p>在不考虑缓存的情况下，get方法会在调用之后立即向数据库发出sql语句，返回持久化对象。<br>load方法会在调用后返回一个代理对象。<br>该代理对象只保存了实体对象的id，直到使用对象的非主键属性时才会发出sql语句。</p>
-</li>
-<li><p>查询数据库中不存在的数据时，get方法返回null<br>load方法抛出异常org.hibernate.ObjectNotFoundException</p>
-</li>
+<h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><ul>
+<li>虚拟机：VMware® Workstation 14 Pro</li>
+<li>服务器操作系统：CentOS 7</li>
+<li>客户端：Windows 8</li>
 </ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>安装vsftpd</li>
+<li>关闭防火墙</li>
+<li>关闭SELinux</li>
+</ol>
+<blockquote>
+<p>参考 <a href="https://sdan8.github.io/2018/12/18/%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E5%8C%BF%E5%90%8DFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="简单配置匿名FTP服务器">简单配置匿名FTP服务器</a> 中<strong>准备工作</strong>一节。</p>
+</blockquote>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><h3 id="创建用户数据文件"><a href="#创建用户数据文件" class="headerlink" title="创建用户数据文件"></a>创建用户数据文件</h3><p>使用 <code>touch /etc/vsftpd/vusers.txt</code> 命令创建用户数据文件，这个文件内容就是要创建的虚拟用户名和密码，自己手动添加，格式为奇数行为用户名，偶数行为密码，如下所示。<br><strong>注：这里的文件名称可以随意设置。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">user1</div><div class="line">123</div><div class="line">user2</div><div class="line">456</div></pre></td></tr></table></figure>
+<p>这个文件内容表示，创建用户 <code>user1</code> 密码为 <code>123</code> ，创建用户 <code>user2</code> 密码为 <code>456</code>。可以在里面添加虚拟用户。</p>
+<h3 id="编译用户数据文件"><a href="#编译用户数据文件" class="headerlink" title="编译用户数据文件"></a>编译用户数据文件</h3><p>将刚才创建好的文件进行编译。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /etc/vsftpd                                  //切换目录</div><div class="line">db_load -T -t hash -f vusers.txt vusers.db      //编译</div></pre></td></tr></table></figure>
+<p>通过 <code>db_load</code> 命令，将 <code>vusers.txt</code> 文件使用hash算法编译成 <code>vusers.db</code> 文件，此时可以看到，当前目录下会生成 <code>vusers.db</code> 文件，同样，这个编译后的 <code>*.db</code> 文件名称可以自定。但是要以 <strong>.db</strong> 结尾。<br><strong>注：这个vusers.db就是存储用户信息的文件，为了安全，可以对这个文件修改权限为600</strong></p>
+<h2 id="映射账号"><a href="#映射账号" class="headerlink" title="映射账号"></a>映射账号</h2><p>虚拟用户需要在系统中有一个映射的系统帐户，所以创建这个被映射的系统帐户。</p>
+<h3 id="创建映射账号"><a href="#创建映射账号" class="headerlink" title="创建映射账号"></a>创建映射账号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -s /sbin/nologin vftpuser               //创建不可以登录系统的vftpuser帐户</div><div class="line">chmod 555 /home/vftpuser/                       //把用户的家目录的写权限去掉</div></pre></td></tr></table></figure>
+<p>此处去掉用户家目录写权限的原因，参考 <a href="https://sdan8.github.io/2018/12/18/%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E7%9A%84FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="配置本地用户访问的FTP服务器">配置本地用户访问的FTP服务器</a> 中<strong>限制用户访问目录</strong>一节。</p>
+<h3 id="创建上传文件夹"><a href="#创建上传文件夹" class="headerlink" title="创建上传文件夹"></a>创建上传文件夹</h3><p>在映射账号的家目录中创建上传用的文件夹。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/vftpuser                               //切换到映射账号的家目录</div><div class="line">mkdir upload                                    //创建上传用的文件夹upload</div><div class="line">chown vftpuser upload                           //把这个上传用的文件夹所属人改为vftpuser</div></pre></td></tr></table></figure>
+<p>vftpuser用户虽然对 <code>/home/vftpuser/</code> 目录没有写权限，但是可以对下级子目录有写权限。</p>
+<h2 id="pam配置文件"><a href="#pam配置文件" class="headerlink" title="pam配置文件"></a>pam配置文件</h2><p>创建自己的pam配置文件， <code>touch /etc/pam.d/vsftpd.pam</code> ，这里的配置文件名称叫什么都可以。在配置文件中写入下列内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">auth required pam_userdb.so db=/etc/vsftpd/vusers</div><div class="line">account required pam_userdb.so db=/etc/vsftpd/vusers</div></pre></td></tr></table></figure>
+<p><strong>注：这里的vusers名字要和<em>编译用户数据文件</em>一步中创建的<em>XXX.db</em>名字一样。</strong></p>
+<h2 id="设置主配置文件"><a href="#设置主配置文件" class="headerlink" title="设置主配置文件"></a>设置主配置文件</h2><p>打开 <code>/etc/vsftpd/vsftpd.conf</code> 文件，进行如下设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pam_service_name=vsftpd.pam                     #自己创建的pam配置文件</div><div class="line">guest_enable=YES                                #将所有非匿名用户都映射为一个特定本地用户</div><div class="line">guest_username=vftpuser                         #被映射的这个特定本地用户</div><div class="line">user_config_dir=/etc/vsftpd/vftpuser.d/         #为虚拟用户建立独立的配置文件</div></pre></td></tr></table></figure>
+<h2 id="创建虚拟用户独立配置文件"><a href="#创建虚拟用户独立配置文件" class="headerlink" title="创建虚拟用户独立配置文件"></a>创建虚拟用户独立配置文件</h2><p>给每个虚拟用户都可以创建一个单独的配置文件，把这些文件统一放到 <code>/etc/vsftpd/vftpuser.d</code> 目录下，并在上一步写到主配置文件中。<br><strong>注：这个独立配置文件的文件名要和用户名相同。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir /etc/vsftpd/vftpuser.d                    //创建独立配置文件存放目录</div><div class="line">touch /etc/vsftpd/vftpuser.d/u1                 //创建u1的配置文件</div></pre></td></tr></table></figure>
+<p>打开u1的配置文件，在里面写入u1的配置信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon_upload_enable=YES                          #允许上传文件</div><div class="line">anon_mkdir_write_enable=YES                     #允许新建文件夹</div><div class="line">anon_other_write_enable=YES                     #允许重命名和删除文件</div></pre></td></tr></table></figure>
+<p>如果想让不同用户登录进来看到的目录不一样，可以设置 <code>local_root</code> 字段，值为登录进来看到的目录。</p>
+<p><strong>注1：当设置了登录进来的目录后，需要修改该目录的所有者为映射账号，才可以在该目录下上传文件。</strong><br><strong>注2：如果想添加新的虚拟用户，只需要在 <em>/etc/vsftpd/vusers.txt</em> 文件中加入，并编译生成新的数据库文件即可。</strong></p>
 
       
     </div>
@@ -451,13 +464,9 @@ get/load(查询单个记录)">
       
         <div class="post-tags">
           
-            <a href="/tags/JSP/" rel="tag"># JSP</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/Hibernate/" rel="tag"># Hibernate</a>
-          
-            <a href="/tags/框架/" rel="tag"># 框架</a>
-          
-            <a href="/tags/CRUD/" rel="tag"># CRUD</a>
+            <a href="/tags/ftp/" rel="tag"># ftp</a>
           
         </div>
       
@@ -466,8 +475,8 @@ get/load(查询单个记录)">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/04/Hibernate中session的使用/" rel="next" title="Hibernate中session的使用">
-                <i class="fa fa-chevron-left"></i> Hibernate中session的使用
+              <a href="/2018/12/18/配置本地用户访问的FTP服务器/" rel="next" title="配置本地用户访问的FTP服务器">
+                <i class="fa fa-chevron-left"></i> 配置本地用户访问的FTP服务器
               </a>
             
           </div>
@@ -475,10 +484,6 @@ get/load(查询单个记录)">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/07/canvas绘制基础/" rel="prev" title="canvas绘制基础">
-                canvas绘制基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +623,7 @@ get/load(查询单个记录)">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get与load的区别"><span class="nav-number">2.</span> <span class="nav-text">get与load的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境"><span class="nav-number">1.</span> <span class="nav-text">本地环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户"><span class="nav-number">3.</span> <span class="nav-text">创建用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户数据文件"><span class="nav-number">3.1.</span> <span class="nav-text">创建用户数据文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译用户数据文件"><span class="nav-number">3.2.</span> <span class="nav-text">编译用户数据文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射账号"><span class="nav-number">4.</span> <span class="nav-text">映射账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建映射账号"><span class="nav-number">4.1.</span> <span class="nav-text">创建映射账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建上传文件夹"><span class="nav-number">4.2.</span> <span class="nav-text">创建上传文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pam配置文件"><span class="nav-number">5.</span> <span class="nav-text">pam配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置主配置文件"><span class="nav-number">6.</span> <span class="nav-text">设置主配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟用户独立配置文件"><span class="nav-number">7.</span> <span class="nav-text">创建虚拟用户独立配置文件</span></a></li></ol></div>
             
 
           </div>

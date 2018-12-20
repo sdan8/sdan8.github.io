@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/18/FBDs6U.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/18/FBDwYq.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/18/FBDcm4.png">
-<meta property="og:updated_time" content="2018-12-18T13:21:58.878Z">
+<meta property="og:updated_time" content="2018-12-20T13:52:46.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置本地用户访问的FTP服务器">
 <meta name="twitter:description" content="配置一台仅支持本地用户访问的FTP服务器，并且限制用户访问目录，添加登录时的欢迎信息。">
@@ -399,7 +399,7 @@
 <li>客户端：Windows 8</li>
 </ul>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
-<p>参考 <a href="https://sdan8.github.io/2018/12/18/%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E5%8C%BF%E5%90%8DFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="简单配置匿名FTP服务器">简单配置匿名FTP服务器</a> 中准备工作一节。</p>
+<p>参考 <a href="https://sdan8.github.io/2018/12/18/%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E5%8C%BF%E5%90%8DFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="简单配置匿名FTP服务器">简单配置匿名FTP服务器</a> 中<strong>准备工作</strong>一节。</p>
 </blockquote>
 <h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>创建用于测试的本地用户，登录FTP服务器时就使用这些用户进行登录，如果已有用户可跳过这一小节。创建用户命令 <code>useradd [参数] 用户名</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">useradd -s /sbin/nologin user1      //创建没有登录系统权限的用户user1</div><div class="line">passwd user1                        //设置user1的密码</div><div class="line">useradd -s /sbin/nologin user2      //创建没有登录系统权限的用户user2</div><div class="line">passwd user2                        //设置user2的密码</div><div class="line">useradd -s /sbin/nologin user3      //创建没有登录系统权限的用户user3</div><div class="line">passwd user3                        //设置user3的密码</div></pre></td></tr></table></figure>
@@ -510,6 +510,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/12/20/配置虚拟用户FTP服务器/" rel="prev" title="配置虚拟用户FTP服务器">
+                配置虚拟用户FTP服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -576,7 +580,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
