@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sdan.coding.me/2019/11/11/Windows%E5%AE%89%E8%A3%85MySQL5-7/</loc>
+    
+    <lastmod>2019-11-11T13:26:15.674Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sdan.coding.me/2019/02/01/CentOS7%E5%AE%89%E8%A3%85Python3-7/</loc>
     
     <lastmod>2019-02-01T02:47:33.036Z</lastmod>
@@ -345,7 +352,7 @@
   </url>
   
   <url>
-    <loc>https://sdan.coding.me/2016/12/03/hello-world/</loc>
+    <loc>https://sdan.coding.me/2019/11/10/hello-world/</loc>
     
     <lastmod>2016-12-02T18:25:16.375Z</lastmod>
     
