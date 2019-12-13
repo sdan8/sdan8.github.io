@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络,VRP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="交换机隔离冲突域，路由器隔离广播域，随着接入到网络中的终端数量增加，网络设备负担越来越重，这时网络设备可以通过华为专有的VRP系统来提升运行效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VRP基础">
+<meta property="og:url" content="https://sdan.coding.me/2019/12/13/VRP基础/index.html">
+<meta property="og:site_name" content="sdan8's blog">
+<meta property="og:description" content="交换机隔离冲突域，路由器隔离广播域，随着接入到网络中的终端数量增加，网络设备负担越来越重，这时网络设备可以通过华为专有的VRP系统来提升运行效率。">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2EDjP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2EyB8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2E2NQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2Ew9A.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2EUtH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2EgAg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2Ef9s.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2Eh3n.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/12/13/Q2ETBT.png">
+<meta property="og:updated_time" content="2019-12-13T12:58:19.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VRP基础">
+<meta name="twitter:description" content="交换机隔离冲突域，路由器隔离广播域，随着接入到网络中的终端数量增加，网络设备负担越来越重，这时网络设备可以通过华为专有的VRP系统来提升运行效率。">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/12/13/Q2EDjP.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sdan.coding.me/2019/12/13/VRP基础/"/>
+
+
+
+
+
+  <title>VRP基础 | sdan8's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?51b952dc020089ea2d315d43088bec49";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sdan8's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sdan.coding.me/2019/12/13/VRP基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sdan8">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sdan8's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VRP基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T20:52:02+08:00">
+                2019-12-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-13T20:58:19+08:00">
+                2019-12-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i> 评论数
+                </span>
+                <a href="/2019/12/13/VRP基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/13/VRP基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/13/VRP基础/" class="leancloud_visitors" data-flag-title="VRP基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-thermometer-half"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>交换机隔离冲突域，路由器隔离广播域，随着接入到网络中的终端数量增加，网络设备负担越来越重，这时网络设备可以通过华为专有的VRP系统来提升运行效率。</p>
+<a id="more"></a>
+<h1 id="VRP基础"><a href="#VRP基础" class="headerlink" title="VRP基础"></a>VRP基础</h1><p>通用路由平台（Versatile Routing Platform，VRP）是华为数据通信产品的通用操作系统平台，它以IP业务为核心，采用组件化的体系结构，在实现丰富功能特性的同时，还提供了基于应用的可裁剪和可扩展的功能，使路由器和交换机的运行效率大大增加。</p>
+<h2 id="VRP的发展"><a href="#VRP的发展" class="headerlink" title="VRP的发展"></a>VRP的发展</h2><p><img src="https://s2.ax1x.com/2019/12/13/Q2EDjP.png" alt="VRP的发展"></p>
+<p>VRP5是分布式操作系统，具有高可靠性，高性能，绝大多数产品使用VRP5。少数高性能设备，如<code>NE系列</code>路由器使用VRP8。</p>
+<h2 id="设备管理接口"><a href="#设备管理接口" class="headerlink" title="设备管理接口"></a>设备管理接口</h2><h3 id="console接口"><a href="#console接口" class="headerlink" title="console接口"></a>console接口</h3><p>通过console线，一端接到设备console接口上，另一端接到PC上，如果是笔记本，可以加一条USB和RS232转接线。在PC上通过超级终端或者SecureCRT等软件进行访问。</p>
+<h3 id="miniUSB接口"><a href="#miniUSB接口" class="headerlink" title="miniUSB接口"></a>miniUSB接口</h3><p>一端接到设备的miniUSB接口上，另一端接到PC上，PC上需要安装miniUSB驱动，在华为官网进行下载，但是驱动仅支持Windows XP、Vista、7的系统，有很大局限性，故推荐使用console接口对设备进行配置。</p>
+<h1 id="命令行基础"><a href="#命令行基础" class="headerlink" title="命令行基础"></a>命令行基础</h1><h2 id="设备初始化启动"><a href="#设备初始化启动" class="headerlink" title="设备初始化启动"></a>设备初始化启动</h2><p><img src="https://s2.ax1x.com/2019/12/13/Q2EyB8.png" alt="设备初始化启动"></p>
+<p>开机界面提供了正在运行VRP版本等信息，启动完成后，系统提示目前正在运行的是自动配置模式，询问用户是否退出自动配置模式，如果选择手动配置，则输入<code>Y</code>。一般情况下选择手动配置。</p>
+<h2 id="命令行视图"><a href="#命令行视图" class="headerlink" title="命令行视图"></a>命令行视图</h2><p><img src="https://s2.ax1x.com/2019/12/13/Q2E2NQ.png" alt="命令行视图"></p>
+<h3 id="用户视图"><a href="#用户视图" class="headerlink" title="用户视图"></a>用户视图</h3><p><code>&lt;Huawei&gt;</code>，采用尖括号表示的为用户视图，只能进行一些基本操作，查看设备状态等。</p>
+<h3 id="系统视图"><a href="#系统视图" class="headerlink" title="系统视图"></a>系统视图</h3><p>在用户视图下输入<code>system-view</code>命令，可以进入系统视图。此时显示为<code>[Huawei]</code>，可以配置系统参数等，一般配置都需要进入系统视图。</p>
+<h3 id="接口视图"><a href="#接口视图" class="headerlink" title="接口视图"></a>接口视图</h3><p>进入设备的接口下进行配置使用的。例如在系统视图下输入<code>[Huawei]interface GigabitEthernet 0/0/0</code>命令，来进入<strong>g 0/0/0</strong>接口，此时显示为<code>[Huawei-GigabitEthernet0/0/0]</code>，可以配置接口参数，IP地址等。</p>
+<h3 id="协议视图"><a href="#协议视图" class="headerlink" title="协议视图"></a>协议视图</h3><p>在系统视图下进入该视图，可以配置该协议的相应内容。</p>
+<h2 id="命令行功能"><a href="#命令行功能" class="headerlink" title="命令行功能"></a>命令行功能</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CTRL+A</td>
+<td style="text-align:center">把光标移动到当前命令行的最前端</td>
+</tr>
+<tr>
+<td style="text-align:center">CTRL+C</td>
+<td style="text-align:center">停止当前命令的运行</td>
+</tr>
+<tr>
+<td style="text-align:center">CTRL+Z</td>
+<td style="text-align:center">回到用户视图</td>
+</tr>
+<tr>
+<td style="text-align:center">CTRL+]</td>
+<td style="text-align:center">终止当前连接或切换连接</td>
+</tr>
+<tr>
+<td style="text-align:center">Backspace</td>
+<td style="text-align:center">删除光标左边的第一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">← or CTRL+B</td>
+<td style="text-align:center">光标左移一位</td>
+</tr>
+<tr>
+<td style="text-align:center">→ or CTRL+F</td>
+<td style="text-align:center">光标右移一位</td>
+</tr>
+<tr>
+<td style="text-align:center">TAB</td>
+<td style="text-align:center">命令补全</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令行在线帮助"><a href="#命令行在线帮助" class="headerlink" title="命令行在线帮助"></a>命令行在线帮助</h2><p><img src="https://s2.ax1x.com/2019/12/13/Q2Ew9A.png" alt="命令行在线帮助"></p>
+<p>用户可以通过输入<code>?</code>来查看帮助信息</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sysname</td>
+<td style="text-align:center">配置设备名称</td>
+</tr>
+<tr>
+<td style="text-align:center">clock timezone</td>
+<td style="text-align:center">设置所在时区</td>
+</tr>
+<tr>
+<td style="text-align:center">clock datetime</td>
+<td style="text-align:center">设置当前时间和日期</td>
+</tr>
+<tr>
+<td style="text-align:center">clock daylight-saving-time</td>
+<td style="text-align:center">设置采用夏时制</td>
+</tr>
+<tr>
+<td style="text-align:center">header login</td>
+<td style="text-align:center">配置在用户登录前显示的标题消息</td>
+</tr>
+<tr>
+<td style="text-align:center">header shell</td>
+<td style="text-align:center">配置在用户登录后显示的标题消息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令等级"><a href="#命令等级" class="headerlink" title="命令等级"></a>命令等级</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">用户等级</th>
+<th style="text-align:center">命令等级</th>
+<th style="text-align:center">名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">访问级</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0 and 1</td>
+<td style="text-align:center">监控级</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0,1 and 2</td>
+<td style="text-align:center">配置级</td>
+</tr>
+<tr>
+<td style="text-align:center">3-15</td>
+<td style="text-align:center">0,1,2 and 3</td>
+<td style="text-align:center">管理级</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; system-view</div><div class="line">[Huawei] command-privilege level 3 view user save</div></pre></td></tr></table></figure>
+<h2 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">用户界面类型</th>
+<th style="text-align:center">编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Console</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">VTY</td>
+<td style="text-align:center">0-4</td>
+</tr>
+</tbody>
+</table>
+<p>VTY接口最大可配范围为0-14</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; system-view</div><div class="line">[Huawei] user-interface vty 0 4</div><div class="line">[Huawei-ui-vty0-4]</div></pre></td></tr></table></figure>
+<h3 id="配置用户界面命令"><a href="#配置用户界面命令" class="headerlink" title="配置用户界面命令"></a>配置用户界面命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">idle-timeout</td>
+<td style="text-align:center">设置超时时间</td>
+</tr>
+<tr>
+<td style="text-align:center">screen-length</td>
+<td style="text-align:center">设置指定终端屏幕的临时显示行数</td>
+</tr>
+<tr>
+<td style="text-align:center">history-command max-size</td>
+<td style="text-align:center">设置历史命令缓冲区的大小</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; system-view</div><div class="line">[Huawei] user0interface console 0</div><div class="line">[Huawei-ui-console0] history-command max-size 20    #历史缓冲区设置为20</div><div class="line">[Huawei-ui-console0] idle-timeout 1 30              #1分30秒</div></pre></td></tr></table></figure>
+<h3 id="配置登录权限"><a href="#配置登录权限" class="headerlink" title="配置登录权限"></a>配置登录权限</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">user privilege</td>
+<td style="text-align:center">配置指定用户界面下的用户级别</td>
+</tr>
+<tr>
+<td style="text-align:center">set authentication password</td>
+<td style="text-align:center">配置本地认证密码</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; system-view</div><div class="line">[Huawei] user-interface vty 0                           #配置vty0</div><div class="line">[Huawei-ui-vty0] user privilege level 2                 #用户级别为2</div><div class="line">[Huawei-ui-vty0-4] set authentication password cipher   #设置密码</div><div class="line">Enter Password(&lt;0-128&gt;): huawei123</div></pre></td></tr></table></figure>
+<h2 id="配置接口IP"><a href="#配置接口IP" class="headerlink" title="配置接口IP"></a>配置接口IP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; system-view</div><div class="line">[Huawei] interface gigabitethernet 0/0/0                #物理接口</div><div class="line">[Huawei-GigabitEthernet0/0/0] ip address 10.10.6.8 255.255.255.0    #子网掩码为255.255.255.0</div><div class="line">[Huawei-GigabitEthernet0/0/0] interface loopback 0      #逻辑接口</div><div class="line">[Huawei-LoopBack0] ip address 1.1.1.1 32                #子网掩码位数为32位</div></pre></td></tr></table></figure>
+<h1 id="文件系统基础"><a href="#文件系统基础" class="headerlink" title="文件系统基础"></a>文件系统基础</h1><p>华为设备的配置文件和VRP系统文件都保存在物理存储介质当中。</p>
+<h2 id="基本查询命令"><a href="#基本查询命令" class="headerlink" title="基本查询命令"></a>基本查询命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查看当前目录</td>
+<td style="text-align:center">pwd</td>
+</tr>
+<tr>
+<td style="text-align:center">显示当前目录下的文件信息</td>
+<td style="text-align:center">dir</td>
+</tr>
+<tr>
+<td style="text-align:center">查看文本文件的具体内容</td>
+<td style="text-align:center">more</td>
+</tr>
+<tr>
+<td style="text-align:center">修改用户当前界面的工作目录</td>
+<td style="text-align:center">cd</td>
+</tr>
+<tr>
+<td style="text-align:center">创建新的目录</td>
+<td style="text-align:center">mkdir</td>
+</tr>
+<tr>
+<td style="text-align:center">删除目录</td>
+<td style="text-align:center">rmdir</td>
+</tr>
+<tr>
+<td style="text-align:center">复制文件</td>
+<td style="text-align:center">copy</td>
+</tr>
+<tr>
+<td style="text-align:center">移动文件</td>
+<td style="text-align:center">move</td>
+</tr>
+<tr>
+<td style="text-align:center">重命名文件</td>
+<td style="text-align:center">rename</td>
+</tr>
+<tr>
+<td style="text-align:center">删除/永久删除文件</td>
+<td style="text-align:center">delete/unreserved</td>
+</tr>
+<tr>
+<td style="text-align:center">恢复删除的文件</td>
+<td style="text-align:center">undelete</td>
+</tr>
+<tr>
+<td style="text-align:center">彻底删除回收站中的文件</td>
+<td style="text-align:center">reset recycle-bin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="配置文件管理"><a href="#配置文件管理" class="headerlink" title="配置文件管理"></a>配置文件管理</h2><ul>
+<li>Current-Configuration File 当前配置文件，存放在<code>RAM</code>中。</li>
+<li>Saved-Configuration File 保存配置文件，存放在<code>Flash/SD卡</code>中，通常用<code>.cfg</code>或<code>.zip</code>作为扩展名。</li>
+</ul>
+<p>设备启动时，会加载保存配置文件到RAM中，作为当前配置文件。</p>
+<h3 id="配置文件查询"><a href="#配置文件查询" class="headerlink" title="配置文件查询"></a>配置文件查询</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">显示当前配置文件</td>
+<td style="text-align:center">display current-configuration</td>
+</tr>
+<tr>
+<td style="text-align:center">显示保存的配置文件</td>
+<td style="text-align:center">display saved-configuration</td>
+</tr>
+<tr>
+<td style="text-align:center">保存当前配置信息</td>
+<td style="text-align:center">save</td>
+</tr>
+</tbody>
+</table>
+<h3 id="系统启动文件"><a href="#系统启动文件" class="headerlink" title="系统启动文件"></a>系统启动文件</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查看系统启动配置参数</td>
+<td style="text-align:center">display startup</td>
+</tr>
+<tr>
+<td style="text-align:center">配置系统下次启动时使用的配置文件</td>
+<td style="text-align:center">startup saved-configuration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="比较当前配置和保存的配置"><a href="#比较当前配置和保存的配置" class="headerlink" title="比较当前配置和保存的配置"></a>比较当前配置和保存的配置</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">比较当前配置与下次启动的配置</td>
+<td style="text-align:center">compare configuration</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://s2.ax1x.com/2019/12/13/Q2EUtH.png" alt="比较配置文件"></p>
+<h3 id="配置文件的重置"><a href="#配置文件的重置" class="headerlink" title="配置文件的重置"></a>配置文件的重置</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">清除下次启动时加载的配置文件</td>
+<td style="text-align:center">reset saved-configuration</td>
+</tr>
+</tbody>
+</table>
+<p>通常该命令配合 <code>startup saved-configuration</code> 命令来使用，常用在VRP更新时。</p>
+<h2 id="存储设备"><a href="#存储设备" class="headerlink" title="存储设备"></a>存储设备</h2><ul>
+<li>SDRAM</li>
+<li>Flash</li>
+<li>NVRAM</li>
+<li>SD Card</li>
+<li>USB</li>
+</ul>
+<p>通过 <code>display version</code> 命令可以查看设备的详细信息。</p>
+<h3 id="存储设备修复"><a href="#存储设备修复" class="headerlink" title="存储设备修复"></a>存储设备修复</h3><p>当存储设备文件系统出现异常时，可以通过 <code>fixdisk</code> 命令进行修复。如果使用该命令修复后，仍然收到系统建议修复的信息，则表示物理介质可能已经损坏。</p>
+<p><img src="https://s2.ax1x.com/2019/12/13/Q2EgAg.png" alt="fixdisk"></p>
+<p>当文件系统异常无法修复时，并且确认不再需要存储器上的所有数据时，可使用 <code>format</code> 命令格式化存储设备。格式化会导致所有文件丢失，并且不能恢复。</p>
+<p><img src="https://s2.ax1x.com/2019/12/13/Q2Ef9s.png" alt="format"></p>
+<h1 id="VRP系统管理"><a href="#VRP系统管理" class="headerlink" title="VRP系统管理"></a>VRP系统管理</h1><p>随着VRP版本的更新，支持的特性也不同。当用户需要对VRP进行版本更新时，可通过以下步骤进行。</p>
+<p><img src="https://s2.ax1x.com/2019/12/13/Q2Eh3n.png" alt="VRP更新过程"></p>
+<p>更新前需要对日志文件、配置文件进行备份，防止更新失败导致数据丢失。</p>
+<p>网络设备可以从服务器获取VRP系统文件，如果本地有VRP系统文件，可以通过USB接口连接电脑直接进行更新。</p>
+<h2 id="文件传输协议"><a href="#文件传输协议" class="headerlink" title="文件传输协议"></a>文件传输协议</h2><p><img src="https://s2.ax1x.com/2019/12/13/Q2ETBT.png" alt="文件传输协议"></p>
+<p>FTP采用两个TCP连接，控制连接和数据连接。控制连接用于连接控制端口，传输控制命令；数据连接用于连接数据端口，传输数据。ARG3系列路由器既可以作为FTP客户端，又可以作为服务端。缺省情况下，AR2200采用主动模式建立数据连接。</p>
+<p>TFTP是简化版的FTP，采用UDP进行文件传输。ARG3系列路由器只可以作为TFTP客户端。</p>
+<h2 id="更新VRP"><a href="#更新VRP" class="headerlink" title="更新VRP"></a>更新VRP</h2><ol>
+<li>配置IP地址，保证客户端和服务器的连通性。</li>
+<li>查看客户端的剩余空间。通过<code>dir</code>命令。当剩余存储空间不足时，可以删除无关的VRP文件或其他文件来释放空间。</li>
+<li>通过FTP远程登录到服务器上。命令 <code>ftp 10.1.1.2</code>，远程登录到IP为<code>10.1.1.2</code>的ftp服务器上。</li>
+<li>输入用户名和密码正确后，可以下载ftp服务器上的更新文件。<code>[ftp] get AR2220E-V200R007C00SPC600.cc</code></li>
+</ol>
+<p>如果采用TFTP，可以直接下载文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; tftp 10.1.1.2 get AR2220E-V200R007C00SPC600.cc</div></pre></td></tr></table></figure></p>
+<ol>
+<li>设置下次启动时加载下载的VRP文件。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Huawei&gt; startup system-software AR2220E-V200R007C00SPC600.cc</div></pre></td></tr></table></figure>
+<ol>
+<li>使用 <code>display startup</code> 命令来查看设置是否成功。</li>
+<li>使用 <code>reboot</code> 命令进行重启设备。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>支持就打赏一下吧！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay_qrcode.png" alt="sdan8 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay_qrcode.jpg" alt="sdan8 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    sdan8
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://sdan.coding.me/2019/12/13/VRP基础/" title="VRP基础">https://sdan.coding.me/2019/12/13/VRP基础/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+            <a href="/tags/VRP/" rel="tag"># VRP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/13/TCP-IP基础知识/" rel="next" title="TCP/IP基础知识">
+                <i class="fa fa-chevron-left"></i> TCP/IP基础知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="sdan8" />
+            
+              <p class="site-author-name" itemprop="name">sdan8</p>
+              <p class="site-description motion-element" itemprop="description">计算机 编程 教程</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sdan8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:sdan_8@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VRP基础"><span class="nav-number">1.</span> <span class="nav-text">VRP基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VRP的发展"><span class="nav-number">1.1.</span> <span class="nav-text">VRP的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备管理接口"><span class="nav-number">1.2.</span> <span class="nav-text">设备管理接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#console接口"><span class="nav-number">1.2.1.</span> <span class="nav-text">console接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#miniUSB接口"><span class="nav-number">1.2.2.</span> <span class="nav-text">miniUSB接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行基础"><span class="nav-number">2.</span> <span class="nav-text">命令行基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备初始化启动"><span class="nav-number">2.1.</span> <span class="nav-text">设备初始化启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行视图"><span class="nav-number">2.2.</span> <span class="nav-text">命令行视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户视图"><span class="nav-number">2.2.1.</span> <span class="nav-text">用户视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统视图"><span class="nav-number">2.2.2.</span> <span class="nav-text">系统视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口视图"><span class="nav-number">2.2.3.</span> <span class="nav-text">接口视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议视图"><span class="nav-number">2.2.4.</span> <span class="nav-text">协议视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行功能"><span class="nav-number">2.3.</span> <span class="nav-text">命令行功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行在线帮助"><span class="nav-number">2.4.</span> <span class="nav-text">命令行在线帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">2.5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令等级"><span class="nav-number">2.6.</span> <span class="nav-text">命令等级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户界面"><span class="nav-number">2.7.</span> <span class="nav-text">用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置用户界面命令"><span class="nav-number">2.7.1.</span> <span class="nav-text">配置用户界面命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置登录权限"><span class="nav-number">2.7.2.</span> <span class="nav-text">配置登录权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置接口IP"><span class="nav-number">2.8.</span> <span class="nav-text">配置接口IP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件系统基础"><span class="nav-number">3.</span> <span class="nav-text">文件系统基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本查询命令"><span class="nav-number">3.1.</span> <span class="nav-text">基本查询命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件管理"><span class="nav-number">3.2.</span> <span class="nav-text">配置文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件查询"><span class="nav-number">3.2.1.</span> <span class="nav-text">配置文件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统启动文件"><span class="nav-number">3.2.2.</span> <span class="nav-text">系统启动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较当前配置和保存的配置"><span class="nav-number">3.2.3.</span> <span class="nav-text">比较当前配置和保存的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件的重置"><span class="nav-number">3.2.4.</span> <span class="nav-text">配置文件的重置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储设备"><span class="nav-number">3.3.</span> <span class="nav-text">存储设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储设备修复"><span class="nav-number">3.3.1.</span> <span class="nav-text">存储设备修复</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VRP系统管理"><span class="nav-number">4.</span> <span class="nav-text">VRP系统管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件传输协议"><span class="nav-number">4.1.</span> <span class="nav-text">文件传输协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新VRP"><span class="nav-number">4.2.</span> <span class="nav-text">更新VRP</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sdan8</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io" rel="external nofollow">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Xl1lJkvxaqmpfGNrFv1BF6Yi-gzGzoHsz',
+        appKey: 'eX5tKMuHjw5Ug922cRNshKOj',
+        placeholder: '留下你的足迹。（评论支持Markdown语法）',
+        avatar:'monsterid',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Xl1lJkvxaqmpfGNrFv1BF6Yi-gzGzoHsz", "eX5tKMuHjw5Ug922cRNshKOj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

@@ -311,6 +311,382 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sdan.coding.me/2016/12/03/Java文件编码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sdan8">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sdan8's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/03/Java文件编码/" itemprop="url">Java文件编码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-03T14:07:34+08:00">
+                2016-12-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-12-03T14:09:23+08:00">
+                2016-12-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i> 评论数
+                </span>
+                <a href="/2016/12/03/Java文件编码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/03/Java文件编码/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/12/03/Java文件编码/" class="leancloud_visitors" data-flag-title="Java文件编码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-thermometer-half"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"张三Ab1"</span>;</div><div class="line"><span class="comment">//转换成字节序列用的是项目默认编码(gbk)，等同于 s.getBytes("gbk")</span></div><div class="line"><span class="keyword">byte</span>[] bytes1 = s.getBytes();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes1)&#123;</div><div class="line">  <span class="comment">//byte转换成int，把后8位前面加上24个0，变成32位</span></div><div class="line">  <span class="comment">//位与上 0xff 去掉前面24个0</span></div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：d5  c5  c8  fd  41  62  31</span></div><div class="line"><span class="comment">//            张     三     A   b   1</span></div><div class="line"><span class="comment">//gbk编码中文占2字节，英文占1字节</span></div><div class="line"></div><div class="line"><span class="comment">//转换成utf-8编码</span></div><div class="line"><span class="keyword">byte</span>[] bytes2 = s.getBytes(<span class="string">"utf-8"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes2)&#123;</div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：e5  bc  a0  e4  b8  89  41  62  31</span></div><div class="line"><span class="comment">//utf-8编码中文占3字节，英文占1字节</span></div><div class="line"></div><div class="line"><span class="comment">//Java是双字节编码 utf-16be</span></div><div class="line"><span class="keyword">byte</span>[] bytes3 = s.getBytes(<span class="string">"utf-16be"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">byte</span> b : bytes3)&#123;</div><div class="line">  System.out.print(Integer.toHexString(b &amp; <span class="number">0xff</span>) + <span class="string">"  "</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//输出结果：5f  20  4e  9  0  41  0  62  0  31</span></div><div class="line"><span class="comment">//utf-16be编码中文英文都占2字节</span></div></pre></td></tr></table></figure>
+<p>当字节序列是某种编码时，如果要转换成字符串，也需要用这种编码方式，否则出现乱码，不指明编码方式时用项目默认编码方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"张三"</span>;</div><div class="line"><span class="keyword">byte</span>[] bytes = s.getBytes(utf-<span class="number">16</span>be);</div><div class="line">String str1 = <span class="keyword">new</span> String(bytes);  <span class="comment">//用项目默认编码方式（gbk），输出乱码</span></div><div class="line">String str2 = <span class="keyword">new</span> String(bytes,<span class="string">"utf-16be"</span>);  <span class="comment">//用utf-16be编码，输出正常</span></div><div class="line">System.out.print(str1); <span class="comment">//输出乱码</span></div><div class="line">System.out.print(str2); <span class="comment">//输出正常e</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sdan.coding.me/2016/12/03/JavaScript正则表达式笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sdan8">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sdan8's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/03/JavaScript正则表达式笔记/" itemprop="url">JavaScript正则表达式笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-03T13:43:10+08:00">
+                2016-12-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2016-12-03T13:46:58+08:00">
+                2016-12-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i> 评论数
+                </span>
+                <a href="/2016/12/03/JavaScript正则表达式笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/12/03/JavaScript正则表达式笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/12/03/JavaScript正则表达式笔记/" class="leancloud_visitors" data-flag-title="JavaScript正则表达式笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-thermometer-half"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h3><p><strong>两种方法实例化RegExp对象</strong></p>
+<ul>
+<li>字面量</li>
+<li>构造函数</li>
+</ul>
+<p><strong>字面量</strong></p>
+<p>将文本写在两个斜线”/“之间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\bis\b/g</span>;</div></pre></td></tr></table></figure>
+<p><strong>构造函数</strong></p>
+<p>使用 new RegExp()出一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\bis\\b'</span>,<span class="string">'g'</span>);</div><div class="line"><span class="comment">// 这里的"\\b"是因为转义字符。</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/03/JavaScript正则表达式笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sdan.coding.me/2016/12/03/JavaScript学习笔记（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1979,7 +2355,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1990,7 +2366,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2001,7 +2377,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
